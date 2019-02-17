@@ -1,0 +1,154 @@
+- keeping track of the people who are on the scene
+	- personal accountability system
+	- tags on each firefighter
+		- tags go on firetruck
+		- tags on firetruck are given to on premise chief
+	- problem is that incident commander has to rember to collect tags
+	- has to have that stuff, if you don't have it, too late to get it
+	- need a system that is passive
+		- don't need to do anything if person shows up on scene
+		- geofencing, firefighters who are on scene show up automatically
+		- need to know what floor fightfighter is on
+		- where the firefighter is in real time
+	- passive, no one has to do anything; but real time, everyone is aware of what is going on
+	- logs after the fact based on who was there
+		- if someone was on a scene where there was hazardous materials, we should be able to tell everyone who was there
+	- needs to cover a wide area
+
+	- important to note where people have already been
+
+- take information from the scene and log it
+	- provide context for legal battles 
+	- collect information on scene in real time
+	- get information to the dispatch center
+	- speech to text feature
+		- prevent important people from having to type in information
+			- ex. nurse, or someone one scene
+	- trend information about heart rate, blood pressure
+		- machine learning?
+		- detect information that may lead to quicker decisions about condition of patient
+	- heart rate can be transfered to computer, then getting information from computer to hospital
+		- website to capture the information, link can be given to hospital
+
+	- vital info to law enforcement, fire dep, etc
+	- information while enroute to/from scene
+		- do we need a helicopter (don't have time for ambulance, need helo)
+
+- lots of case reports, text to speech could be useful
+	- for law enforcement, each moment they are on computer they are not helping out
+	- log audio and give best transcript of audio to text
+
+- communication is key
+
+- streamline processes for all services
+
+- radio communications are not reliable (digital coms)
+
+- digital coms need to be reliable and able to operate even when offline
+
+- important that they can get on radio and communicate when incidents happen
+	- inform dispatch, keep them in check so that they don't send backup when it's not needed
+		- false negatives
+
+- below 100
+	- keeping speed down
+	- having checkboxes checked
+		- bulletproof vest on
+		- etc
+	- making sure that officers are not using computers while car is in motion
+
+- classification and handline of drugs via url
+	- identification of photo (ML)
+		- something that can reliably confirm the type of drug
+	- then information about how to handle
+		- pictures of rquipment
+
+- gamification of the below 100 idea
+	- pitting forces against each other
+		- brandon police force vs sufu police force
+	- scales, keeps police forces of seperate sizes able to compete against one another equitably
+
+
+- drone that follows person and provides connectivity
+
+
+- as accurate as possible, don't autocorrent keep raw
+	- par - personal accountability record
+
+
+- generating reponse area
+	- public events for certain are listed
+		- existing events can be joined in on by other departments responding to the scene
+			- ex. police are on scene and are reporting to the website already, firefighters just join lobby when they get on scene
+		- being able to filter data
+			- data to police might not be pertinant to fightfighting team
+			- compartimentalization of information
+		- prevent people who arent supposed to know about informaion (secret  clearance only)
+		- HIPA compliance
+	- have everything marked as classified by default, have to mark it as unclassified
+
+- system to keep comms syncronized and data private as needed
+	- try to do geolocation so that people can be checked in on scene automatically
+		- "geofencing"
+		- register people to a "lobby" automatically as they enter an area (via website)
+	- by reporting on data, you check into scene
+		- keeps log of people on scene
+		- keeps log of messages
+	- prevents people who shouldn't see information from seeing it
+		- marking data as classified by default
+	- text to speech
+	- communication between departments
+	- real time data, and caching when offline
+		- data updated on page automatically via websockets
+	- easily sharable to other parties via url
+		- hospitals
+	- allow dispatch to know that party is safe
+		- ex. police let dispatch know they are safe by reporting in every 5 min via notification
+			- notification has security on it so that a person can not fake it
+	- handle showing who is on the scene
+		- as well as ranking and hierarchy of command
+		- allow messaging between people
+	
+	- layout
+		- website
+			- able to signify distress (in some capacity)
+			- updates with websockets
+			- handles geolocation, sending geolocation data to server so that a "lobby" can be joined
+			- allows sending notifications of safety in advance (with password)
+			- handles notifications, sends response to server (encrypted)
+			- caches while offline
+			- allows pictures, video, and audio to be taken
+			- shows hierarchy of people on scene and their departments
+				- police/fire/emt are each in their own categories
+					- but the people there can be seen
+				- allows updating of hierarchy, editing of information about person (like who officer reports to
+		- server
+			- handles accounts for people, their classification and secret data status (what data they can see)
+			- handles orchestration of connections
+			- handles geolocation data
+				- so that people at the same scene can be connected in a similar area
+				- so that geolocation data can be logged too
+			- handles rerouting connections
+			- handles sending out notification every X minutes depending on the responder
+				- send out notification to police every 5 minutes, take action if they have not responded in enough time
+					- ex. notify dispatch if a certain person has not given their notification
+			- handles logging data (pictures, video, audio)
+			- handles text to speech operations
+			- handles filtering classified information, while still logging
+		- note for presentation
+			- other data could be transmitted
+				- heartbeat, blood pressure, etc
+			- other data could be analysed on
+				- using machine learning, etc
+			- pictures could be analyzed on
+				- using deep learning, etc
+
+
+- having the ability to join remotely, search for events by location, name, etc
+- having ability to have people check in automatically when they enter geofence
+- provide information about how far away other services are
+	- ex. helocopter is 5 hours away, provide updates to other people in event lobby
+
+presentation:
+
+	- Make note of the privacy of the voice data being streamed (it's not stored by API (Google) etc)

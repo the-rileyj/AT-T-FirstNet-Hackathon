@@ -4,9 +4,19 @@ import ShadowBoxing from "shadowboxing"
 
 import COLORSCHEME from "../Support/ColorScheme"
 import FirePoliceEms from "../Photos/PoliceFireEMS.jpg"
+import Updater from "../Types/Updater";
 
 
-class Home extends React.Component {
+interface HomeProps {
+    updater: Updater
+    geolocation: any
+}
+
+class Home extends React.Component<HomeProps> {
+    public constructor(props: HomeProps) {
+        super(props)
+    }
+
     public render() {
         const componentWrapperStyle: React.CSSProperties = {
             backgroundColor: COLORSCHEME.primaryLight,

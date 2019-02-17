@@ -6,17 +6,32 @@ import Header from "./Support/Header"
 import RoutingItems from "./Types/RoutingItems"
 
 import { Route, Switch } from 'react-router'
-
+import Updater from "./Types/Updater"
 
 
 class App extends React.Component {
+    geolocation: any
+    updatr: Updater
+
+    public constructor(props: any) {
+        super(props)
+
+        this.updatr = new Updater("/api/ws/global")
+    }
+
     public render() {
+        let self = this
+
         return (
             <div className="App" style={{ backgroundColor: COLORSCHEME.primaryLight, minHeight: "100vh", }}>
                 <Header />
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <Switch>
-                        {RoutingItems.map((routingItem, index) => <Route key={index} path={routingItem.route} component={routingItem.component} />)}
+                        {RoutingItems.map((routingItem, index) => {
+                            // routingItem.component = routingItem.component.bind(self)
+
+                            return <Route key={index} path={routingItem.route} component={routingItem.component(self.updatr, self.geolocation)} />
+                        })}
                     </Switch>
                 </div>
             </div>
